@@ -56,6 +56,35 @@ export default {
       }
     }
   },
+
+  /*
+   ** PWA
+   */
+  pwa: {
+    workbox: {
+      offline: true,
+      cacheName: 'pwa',
+      offlineAnalytics: true,
+      runtimeCaching: [
+        {
+          urlPattern: '/*',
+          handler: 'networkFirst',
+          method: 'GET'
+        }
+      ]
+    },
+    manifest: {
+      name: 'Barcode Reader',
+      lang: 'ja',
+      short_name: 'BarcodeReader',
+      title: 'Barcode Reader',
+      'og:title': 'BarcodeReader',
+      description: 'バーコードリーダーです。',
+      'og:description': 'バーコードリーダーです。',
+      theme_color: '#424242',
+      background_color: '#424242'
+    }
+  },
   /*
    ** Build configuration
    */
