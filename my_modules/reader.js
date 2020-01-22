@@ -25,8 +25,6 @@ export default class Reader {
       // undefined で environment facing
       const result = await this.codeReader.decodeFromInputVideoDevice(undefined, this.stage);
 
-      console.log(result);
-
       resolve(result);
 
       this.isLisning = false;
