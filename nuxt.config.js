@@ -67,6 +67,7 @@ export default {
     workbox: {
       offline: true,
       cacheName: 'pwa',
+      autoRegister: true,
       offlineAnalytics: true,
       runtimeCaching: [
         {
