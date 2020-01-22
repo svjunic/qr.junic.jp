@@ -1,4 +1,4 @@
-import Vue from 'vue';
+// import Vue from 'vue';
 
 export const state = () => ({
   //state
@@ -11,19 +11,29 @@ export const getter = {
 
 export const actions = {
   //actions
-  ADD_LIST({ commit }, payload) {
+  ADD_ITEM({ commit }, payload) {
     // payloadはhtmlかなにか
-    if (typeof payload.date === 'number' && typeof payload.text === 'string') {
-      commit('ADD_LIST', payload);
+    if (typeof payload.datetime === 'number' && typeof payload.date === 'string' && typeof payload.text === 'string') {
+      commit('ADD_ITEM', payload);
+    }
+  },
+  DELETE_ITEM({ commit }, payload) {
+    if (typeof payload === 'number') {
+      commit('DELETE_ITEM', payload);
     }
   }
 };
 
 export const mutations = {
   //mutations
-  ADD_LIST(state, payload) {
-    console.log('ADD_LIST', payload);
+  ADD_ITEM(state, payload) {
+    console.log('ADD_ITEM', payload);
     console.log(payload);
     state.history.push(payload);
+  },
+  DELETE_ITEM(state, payload) {
+    console.log('DELETE_LIST', payload);
+    console.log(payload);
+    state.history.splice(payload, 1);
   }
 };

@@ -6,6 +6,7 @@
     <v-dialog v-model="dialog" scrollable max-width="80%">
       <v-card min-width="80vw" min-height="80vh">
         <v-card-title>読み取り結果</v-card-title>
+        <v-card-text v-html="date"></v-card-text>
         <v-card-text v-html="customInput"></v-card-text>
         <v-btn color="green darken-1" text @click="dialog = false">閉じる</v-btn>
       </v-card>
@@ -19,6 +20,7 @@ export default {
     return {
       dialog: false,
       input: '',
+      date: '',
       reader: null,
       isFirstTime: true
     };
@@ -42,7 +44,7 @@ export default {
     customInput() {
       let customInput = this.input;
       if (/^https?:\/\//.test(customInput)) {
-        customInput = `<a href="${customInput}">${customInput}</a>`;
+        customInput = `<a href="${customInput}" target="_blank" rel="noopener">${customInput}</a>`;
       }
 
       return customInput;
@@ -67,8 +69,11 @@ export default {
 
           console.log(this.input.text);
 
-          this.$store.dispatch('ADD_LIST', {
-            date: new Date().getTime(),
+          const date = new Date();
+          this.date = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+          this.$store.dispatch('ADD_ITEM', {
+            datetime: date.getTime(),
+            date: this.date,
             text: this.input
           });
           this.dialog = true;
