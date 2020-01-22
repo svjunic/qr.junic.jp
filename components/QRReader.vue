@@ -58,13 +58,19 @@ export default {
     read() {
       this.reader
         .listen()
-        .then(code => {
-          if (!code) return;
-          this.input = code;
+        .then(result => {
+          if (!result) return;
+          this.input = result.text;
           this.$try.innerHTML = '再読み込み';
           this.$try.disabled = false;
           //this.$stage.hidden = true;
 
+          console.log(this.input.text);
+
+          this.$store.dispatch('ADD_LIST', {
+            date: new Date().getTime(),
+            text: this.input
+          });
           this.dialog = true;
           this.isFirstTime = false;
         })

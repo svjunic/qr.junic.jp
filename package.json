@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "@zxing/library": "^0.15.2",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vuex-persistedstate": "^2.7.0"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.0.0"
