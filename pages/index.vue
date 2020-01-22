@@ -13,3 +13,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.v-layout {
+  height: 100%;
+}
+</style>

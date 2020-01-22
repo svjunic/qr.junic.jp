@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="reader__wrap">
     <video id="stage" style="border: 1px solid gray"></video>
     <!-- <v-text-field label="Main input" v-model="input" hide-details="auto"></v-text-field> -->
     <v-dialog v-model="dialog" scrollable max-width="80%">
@@ -54,7 +54,7 @@ export default {
       console.log(this.reader);
       e.preventDefault();
       this.dialog = false;
-      await ScriptingDelay(1000)
+      await ScriptingDelay(1000);
       this.read();
     },
     read() {
@@ -81,6 +81,9 @@ export default {
 </script>
 
 <style lang="scss">
+.reader__wrap {
+  height: 100%;
+}
 #stage {
   width: 100%;
   //height: 100%;

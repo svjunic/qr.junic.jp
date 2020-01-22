@@ -2,7 +2,9 @@
   <v-app dark>
     <v-app-bar :clipped-left="clipped" fixed app>
       <v-spacer />
-      <v-toolbar-title v-text="title" />
+      <nuxt-link to="/" class="title">
+        <v-toolbar-title v-text="title" />
+      </nuxt-link>
       <v-spacer />
       <v-btn icon @click.stop="drawer = !drawer">
         <v-icon>mdi-menu</v-icon>
@@ -29,7 +31,9 @@
     </v-content>
 
     <v-footer :fixed="fixed" app>
-      <span>&copy; 2019</span>
+      <v-card flat tile width="100%" class="lighten-1 text-center copyright">
+        <small>&copy; <a href="https://sv.junic.jp" rel="noopener" target="_blank">sv.junic</a>. All Rights Reserved.</small>
+      </v-card>
     </v-footer>
   </v-app>
 </template>
@@ -44,20 +48,38 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'Scan',
           to: '/'
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'history',
+          title: 'History',
           to: '/history'
         }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'qr.junic.jp'
+      title: 'Barcode Scanner'
     };
   }
 };
 </script>
+
+<style lang="scss">
+.title {
+  text-decoration: none;
+  &:active,
+  &:focus,
+  &:active,
+  &:visited {
+    color: #ffffff;
+  }
+}
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+</style>
