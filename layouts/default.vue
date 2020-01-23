@@ -30,10 +30,10 @@
       </v-container>
     </v-content>
 
-    <v-footer :fixed="fixed" app>
-      <v-card flat tile width="100%" class="lighten-1 text-center copyright">
+    <v-footer :fixed="fixed" app class="no-gutters col col-12 justify-center">
+      <p class="mb-0">
         <small>&copy; <a href="https://sv.junic.jp" rel="noopener" target="_blank">sv.junic</a>. All Rights Reserved.</small>
-      </v-card>
+      </p>
     </v-footer>
   </v-app>
 </template>
