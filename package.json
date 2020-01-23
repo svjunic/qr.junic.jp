@@ -8,7 +8,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate && npm run sw-init",
+    "sw-init": "sh appendSWSetting.sh"
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-beta.19",
@@ -17,6 +18,13 @@
     "vuex-persistedstate": "^2.7.0"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.0.0"
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/runtime": "^7.8.3",
+    "@nuxtjs/vuetify": "^1.0.0",
+    "core-js": "^3.6.4"
   }
 }

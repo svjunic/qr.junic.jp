@@ -19,7 +19,7 @@
         <v-card-title>読み取り結果</v-card-title>
         <v-card-text>
           <div class="history__dialog-date" v-html="showitem.date"></div>
-          <div class="history__dialog-text" v-html="showitem.text"></div>
+          <div class="history__dialog-text" v-html="customInput"></div>
         </v-card-text>
         <v-btn color="green darken-1" text @click="dialog = false">閉じる</v-btn>
       </v-card>
@@ -57,7 +57,7 @@ export default {
   computed: {
     ...mapState(['history']),
     customInput() {
-      let customInput = this.input;
+      let customInput = this.showitem.text;
       if (/^https?:\/\//.test(customInput)) {
         customInput = `<a href="${customInput}" target="_blank" rel="noopener">${customInput}</a>`;
       }

@@ -15,7 +15,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-      { rel: 'apple-touch-icon-precomposed', type: 'image/png', href: '/junic.png' }
+      { rel: 'apple-touch-icon-precomposed', type: 'image/png', href: '/icon/icon-144x144.png' }
     ]
   },
   /*
@@ -72,6 +72,7 @@ export default {
       cacheName: 'pwa',
       autoRegister: true,
       offlineAnalytics: true,
+      //offlineAssets: ['/*'], //ワイルドカードとかは無理
       runtimeCaching: [
         {
           urlPattern: '/*',
@@ -102,13 +103,60 @@ export default {
       ]
     }
   },
+
   /*
    ** Build configuration
    */
   build: {
     /*
+     ** publicPath
+     ** nuxtファイルの出力先
+     */
+    publicPath: '/fw/',
+
+    /*
+     ** 圧縮関連
+     */
+    terser: {
+      terserOptions: {
+        compress: {
+          drop_console: process.env.NODE_ENV !== 'development'
+        }
+      }
+    },
+
+    /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    //transpile: ['vue-magic-grid'],
+    babel: {
+      presets({ isServer }, [preset, options]) {
+        options.corejs = { version: 3, proposals: true };
+        options.useBuiltIns = 'usage';
+        if (isServer) {
+          options.targets = {
+            node: 'current'
+          };
+        } else {
+          options.targets = {
+            browsers: [
+              'last 2 Chrome versions',
+              'last 2 Edge versions',
+              'last 2 Firefox versions',
+              'last 2 Safari versions',
+              'iOS >= 11',
+              'Android >= 4.4.4',
+              'last 2 ChromeAndroid versions'
+            ]
+          };
+        }
+
+        options.loose = true;
+        //options.debug = true;
+        options.debug = false;
+      },
+      plugins: ['@babel/plugin-syntax-dynamic-import']
+    },
+    extend(config, { isDev, isClient }) {}
   }
 };
