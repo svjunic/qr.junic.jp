@@ -2,6 +2,9 @@
 
 > My posh Nuxt.js project
 
+↓ここ  
+https://qr.junic.jp/
+
 ## がいよう
 nuxtでオフライン対応のPWAをやるためだけに作った、
 クソ雑魚PWAなんでもバーコードリーダーです。
