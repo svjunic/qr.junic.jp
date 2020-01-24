@@ -1,5 +1,8 @@
 # qr.junic.jp
 
+クソ雑魚PWAなんでもバーコードリーダーです。
+Vuetify を使えばきれいに見れる、そう考えたときもありました。
+
 > My posh Nuxt.js project
 
 ## Build Setup
