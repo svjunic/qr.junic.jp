@@ -91,6 +91,7 @@ export default {
       'og:description': 'バーコードリーダーです。',
       theme_color: '#424242',
       background_color: '#424242',
+      scope: 'https://qr.junic.jp/',
       icons: [
         { sizes: '72x72', type: 'image/png', src: '/icons/icon-72x72.png' },
         { sizes: '96x96', type: 'image/png', src: '/icons/icon-96x96.png' },
