@@ -1,6 +1,7 @@
 <template>
   <v-layout column justify-center align-center>
     <QRReader />
+    <v-btn color="mt-5 secondary darken-1" block to="/history/">履歴</v-btn>
   </v-layout>
 </template>
 
@@ -15,7 +16,10 @@ export default {
 </script>
 
 <style lang="scss">
-.v-layout {
+.layout {
   height: 100%;
+}
+.block {
+  display: block;
 }
 </style>
