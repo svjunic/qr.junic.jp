@@ -1,7 +1,7 @@
 <template>
   <v-layout column justify-center align-center>
     <v-list min-width="100%" max-width="100%" two-line>
-      <v-list-item v-for="(item, index) in history" :key="index">
+      <v-list-item v-for="(item, index) in historyOrderByDesc" :key="index">
         <v-list-item-content @click.prevent="open(index)" :data-index="index">
           <v-list-item-subtitle v-text="item.date"></v-list-item-subtitle>
           <v-list-item-title v-text="item.text"></v-list-item-title>
@@ -55,7 +55,7 @@ export default {
   },
 
   computed: {
-    ...mapState(['history']),
+    ...mapGetters(['historyOrderByDesc']),
     customInput() {
       let customInput = this.showitem.text;
       if (/^https?:\/\//.test(customInput)) {
@@ -67,7 +67,7 @@ export default {
 
   methods: {
     open(index) {
-      this.showitem = this.history[index];
+      this.showitem = this.historyOrderByDesc[index];
       this.dialog = true;
     },
     deleteItem(index) {

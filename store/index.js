@@ -5,8 +5,20 @@ export const state = () => ({
   history: []
 });
 
-export const getter = {
-  //getter
+export const getters = {
+  historyOrderByDesc(state) {
+    let history = [].concat(state.history);
+    history = history.sort((a, b) => {
+      let comparison = 0;
+      if (a.datetime < b.datetime) {
+        comparison = 1;
+      } else if (a.datetime > b.datetime) {
+        comparison = -1;
+      }
+      return comparison;
+    });
+    return history;
+  }
 };
 
 export const actions = {
