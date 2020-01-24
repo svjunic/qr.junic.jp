@@ -1,9 +1,18 @@
 # qr.junic.jp
 
-クソ雑魚PWAなんでもバーコードリーダーです。
-Vuetify を使えばきれいに見れる、そう考えたときもありました。
-
 > My posh Nuxt.js project
+
+## がいよう
+nuxtでオフライン対応のPWAをやるためだけに作った、
+クソ雑魚PWAなんでもバーコードリーダーです。
+
+Vuetify を使えばきれいに見れる、そう考えたときもありました。
+ドキュメントもスクロールすると英語だったりで、なかなかつらい。
+
+## かんそう
+nuxtjs/pwaはworkboxの出力がnuxt向けの出力をするのでprecacheが無理やりになった。
+nuxtjs/pwaに頼らないprecacheをするなり、
+無理やりshellでぶっこむなりすればよい？のかもしれない？
 
 ## Build Setup
 
