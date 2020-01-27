@@ -1,8 +1,6 @@
 <template>
   <div class="reader__wrap">
-    <div class="reader__stage-wrap">
-      <video id="stage"></video>
-    </div>
+    <div id="reader__stage-wrap" class="reader__stage-wrap"></div>
     <!-- <v-text-field label="Main input" v-model="input" hide-details="auto"></v-text-field> -->
     <v-dialog v-model="dialog" scrollable max-width="80%">
       <v-card min-width="80vw" min-height="80vh">
@@ -33,8 +31,7 @@ export default {
   async mounted() {
     const Reader = (await import('~/my_modules/Reader.js')).default;
 
-    this.$stage = document.querySelector('#stage');
-    this.reader = new Reader('stage');
+    this.reader = new Reader({ stageId: 'reader__stage-wrap', videoId: 'stage' });
     this.read();
   },
 
