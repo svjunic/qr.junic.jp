@@ -24,11 +24,11 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-content>
+    <v-main>
       <v-container>
         <nuxt />
       </v-container>
-    </v-content>
+    </v-main>
 
     <v-footer :fixed="fixed" app class="no-gutters col col-12 justify-center">
       <p class="mb-0">
@@ -49,20 +49,20 @@ export default {
         {
           icon: 'mdi-apps',
           title: 'Scan',
-          to: '/'
+          to: '/',
         },
         {
           icon: 'mdi-chart-bubble',
           title: 'History',
-          to: '/history'
-        }
+          to: '/history',
+        },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Barcode Scanner'
+      title: 'Barcode Scanner',
     };
-  }
+  },
 };
 </script>
 
